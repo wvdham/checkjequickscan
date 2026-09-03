@@ -216,3 +216,4 @@ html.js .op.in{opacity:1;transform:none}
 .melding.goed{background:rgba(18,192,138,.12);color:var(--inkt)}
 .melding.fout{background:rgba(255,90,54,.12);color:var(--inkt)}
 .cf-turnstile:empty{display:none}
+.klein-op-donker{font-size:.95rem;color:#8fa9a2;margin-top:.9rem}
