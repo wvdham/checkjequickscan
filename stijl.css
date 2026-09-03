@@ -238,3 +238,27 @@ html.js .op.in{opacity:1;transform:none}
 .voorbeelden .bewijs blockquote{border-left-color:var(--kleur);font-size:1rem}
 @media(min-width:46rem){.voorbeelden{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:68rem){.voorbeelden{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- veelgestelde vragen ---------- */
+.vragen{margin-top:2rem;display:grid;gap:.7rem;max-width:52rem}
+.vragen details{background:var(--vel);border-radius:16px;box-shadow:var(--schaduw);
+  overflow:hidden}
+.vragen summary{cursor:pointer;list-style:none;padding:1.05rem 3rem 1.05rem 1.3rem;
+  font-weight:600;position:relative;transition:color .2s}
+.vragen summary::-webkit-details-marker{display:none}
+.vragen summary::after{content:"";position:absolute;right:1.4rem;top:1.45rem;
+  width:.6rem;height:.6rem;border-right:2px solid var(--flauw);
+  border-bottom:2px solid var(--flauw);transform:rotate(45deg);
+  transition:transform .25s var(--toon),border-color .2s}
+.vragen details[open] summary::after{transform:rotate(-135deg);border-color:var(--groen)}
+.vragen summary:hover{color:var(--groen)}
+.vragen summary:focus-visible{outline:2px solid var(--groen);outline-offset:-2px}
+.vragen details p{margin:0 1.3rem 1.1rem;color:var(--inkt-2);font-size:.96rem}
+.vragen details p + p{margin-top:-.4rem}
+.vragen details p:last-child{margin-bottom:1.25rem}
+.vragen a{color:var(--groen);font-weight:600}
+.balknav{display:flex;align-items:center;gap:1.2rem}
+.balknav>a:not(.knop){text-decoration:none;font-weight:600;font-size:.92rem;
+  color:var(--inkt-2)}
+.balknav>a:not(.knop):hover{color:var(--inkt)}
+@media(max-width:26rem){.balknav>a:not(.knop){display:none}}
