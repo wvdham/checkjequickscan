@@ -270,8 +270,9 @@ addEventListener("DOMContentLoaded", function () {
         documenten is in een losse pdf niet te zien. Denk aan de projectomschrijving of de
         aanvraag, de situatie- of slooptekening, eerder ecologisch onderzoek op dezelfde
         locatie, en een concept-activiteitenplan als u dat al heeft.</span>
-        <input name="dossier" type="file" accept="application/pdf" multiple required>
+        <input id="bestandskiezer" type="file" accept="application/pdf" multiple>
       </label>
+      <ul class="bestandslijst" id="bestandslijst" hidden></ul>
       <label class="vinkje">
         <input name="gerechtigd" type="checkbox" value="ja" required>
         <span>Ik lever dit dossier aan als opsteller van het rapport of als diens opdrachtgever, en
@@ -340,6 +341,63 @@ addEventListener("DOMContentLoaded", function () {
     melding.hidden = false;
   }
 
+  // Een file-veld vervangt zijn selectie bij elke nieuwe keuze en toont alleen
+  // "2 bestanden". Daarom houden wij de lijst zelf bij: dan kun je in meerdere keren
+  // toevoegen, en zie je achteraf welke bestanden erin zitten.
+  const MAX_AANTAL = 12, MAX_BYTES = 60 * 1024 * 1024;
+  const kiezer = document.getElementById('bestandskiezer');
+  const lijst = document.getElementById('bestandslijst');
+  const gekozen = [];
+
+  function leesbaar(n) {
+    return n >= 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.round(n / 1024) + ' kB';
+  }
+
+  function toonBestanden() {
+    lijst.textContent = '';
+    lijst.hidden = gekozen.length === 0;
+    let totaal = 0;
+    gekozen.forEach((b, i) => {
+      totaal += b.size;
+      const li = document.createElement('li');
+      const naam = document.createElement('span');
+      naam.className = 'bnaam';
+      naam.textContent = b.name;                 // textContent, nooit innerHTML
+      const maat = document.createElement('span');
+      maat.className = 'bmaat';
+      maat.textContent = leesbaar(b.size);
+      const weg = document.createElement('button');
+      weg.type = 'button';
+      weg.className = 'bweg';
+      weg.setAttribute('aria-label', 'Verwijder ' + b.name);
+      weg.textContent = '\u00d7';
+      weg.addEventListener('click', () => { gekozen.splice(i, 1); toonBestanden(); });
+      li.append(naam, maat, weg);
+      lijst.appendChild(li);
+    });
+    if (gekozen.length) {
+      const li = document.createElement('li');
+      li.className = 'btotaal';
+      li.textContent = gekozen.length + (gekozen.length === 1 ? ' bestand, ' : ' bestanden, ')
+                     + leesbaar(totaal) + ' samen';
+      lijst.appendChild(li);
+    }
+  }
+
+  kiezer.addEventListener('change', () => {
+    for (const b of kiezer.files) {
+      if (!/\.pdf$/i.test(b.name)) { zeg('Alleen pdf-bestanden.', 'fout'); continue; }
+      if (gekozen.some(g => g.name === b.name && g.size === b.size)) continue;  // al gekozen
+      if (gekozen.length >= MAX_AANTAL) { zeg('Maximaal twaalf bestanden.', 'fout'); break; }
+      if (gekozen.reduce((n, g) => n + g.size, 0) + b.size > MAX_BYTES) {
+        zeg('Samen maximaal 60 MB.', 'fout'); break;
+      }
+      gekozen.push(b);
+    }
+    kiezer.value = '';       // leegmaken, anders kun je hetzelfde bestand niet opnieuw kiezen
+    toonBestanden();
+  });
+
   formulier.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!ONTVANGST) {
@@ -348,19 +406,27 @@ addEventListener("DOMContentLoaded", function () {
     }
     if (!formulier.reportValidity()) return;
 
-    const bestanden = formulier.dossier.files;
-    let totaal = 0;
-    for (const b of bestanden) totaal += b.size;
-    if (bestanden.length > 12) { zeg('Maximaal twaalf bestanden.', 'fout'); return; }
-    if (totaal > 60 * 1024 * 1024) { zeg('Samen maximaal 60 MB.', 'fout'); return; }
+    if (!gekozen.length) { zeg('Kies eerst een of meer pdf-bestanden.', 'fout'); return; }
+
+    // De velden met de hand overzetten, want de bestanden staan niet meer in het
+    // invoerveld maar in onze eigen lijst.
+    const pakket = new FormData();
+    for (const el of formulier.elements) {
+      if (!el.name) continue;
+      if (el.type === 'checkbox') { if (el.checked) pakket.append(el.name, el.value); }
+      else pakket.append(el.name, el.value);
+    }
+    for (const b of gekozen) pakket.append('dossier', b, b.name);
 
     knop.disabled = true;
     zeg('Bezig met versturen, dit kan bij een groot dossier even duren.');
     try {
-      const r = await fetch(ONTVANGST, { method: 'POST', body: new FormData(formulier) });
+      const r = await fetch(ONTVANGST, { method: 'POST', body: pakket });
       const uit = await r.json();
       if (!r.ok) throw new Error(uit.fout || 'er ging iets mis');
       formulier.reset();
+      gekozen.length = 0;
+      toonBestanden();
       zeg('Ontvangen, kenmerk ' + uit.kenmerk + '. U hoort per e-mail van ons.', 'goed');
     } catch (fout) {
       zeg(fout.message + '. Lukt het niet, mail dan naar info@checkjequickscan.nl.', 'fout');

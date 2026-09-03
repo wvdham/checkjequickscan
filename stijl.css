@@ -217,3 +217,16 @@ html.js .op.in{opacity:1;transform:none}
 .melding.fout{background:rgba(255,90,54,.12);color:var(--inkt)}
 .cf-turnstile:empty{display:none}
 .klein-op-donker{font-size:.95rem;color:#8fa9a2;margin-top:.9rem}
+
+/* de zelf bijgehouden bestandslijst */
+.bestandslijst{list-style:none;margin:-.4rem 0 0;padding:0;display:grid;gap:.4rem}
+.bestandslijst li{display:flex;align-items:center;gap:.7rem;font-size:.9rem;
+  background:var(--papier);border:1px solid var(--lijn);border-radius:12px;
+  padding:.5rem .6rem .5rem .85rem}
+.bnaam{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bmaat{color:var(--flauw);font-variant-numeric:tabular-nums;flex:none}
+.bweg{flex:none;border:0;background:transparent;cursor:pointer;font:inherit;
+  font-size:1.15rem;line-height:1;color:var(--flauw);padding:.1rem .35rem;border-radius:8px}
+.bweg:hover{color:var(--rood);background:rgba(255,90,54,.1)}
+.bestandslijst .btotaal{display:block;background:none;border:0;padding:.1rem .85rem 0;
+  color:var(--inkt-2);font-weight:600;font-size:.86rem}
