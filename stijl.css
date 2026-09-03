@@ -230,3 +230,11 @@ html.js .op.in{opacity:1;transform:none}
 .bweg:hover{color:var(--rood);background:rgba(255,90,54,.1)}
 .bestandslijst .btotaal{display:block;background:none;border:0;padding:.1rem .85rem 0;
   color:var(--inkt-2);font-weight:600;font-size:.86rem}
+
+/* de voorbeeldkaarten dragen hun eigen ernstkleur */
+.voorbeelden{margin-top:2.2rem}
+.voorbeelden .bewijs{border-top-color:var(--kleur)}
+.voorbeelden .bewijs .label{color:var(--kleur)}
+.voorbeelden .bewijs blockquote{border-left-color:var(--kleur);font-size:1rem}
+@media(min-width:46rem){.voorbeelden{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:68rem){.voorbeelden{grid-template-columns:repeat(2,1fr)}}
