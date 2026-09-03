@@ -24,6 +24,20 @@ setTimeout(function(){
   if (!window.__animatie) document.documentElement.classList.remove("js");
 }, 2500);
 </script>
+<script>
+// Turnstile houdt bots van het formulier. Het script van Cloudflare wordt alleen
+// opgehaald als er een sitekey staat; zonder sleutel blijft de pagina schoon en
+// werkt het formulier gewoon, want de Worker laat de controle dan ook los.
+addEventListener("DOMContentLoaded", function () {
+  var vak = document.querySelector(".cf-turnstile");
+  if (!vak || !vak.dataset.sitekey) return;
+  var s = document.createElement("script");
+  s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+  s.async = true;
+  s.defer = true;
+  document.head.appendChild(s);
+});
+</script>
 </head>
 <body>
 
@@ -227,6 +241,8 @@ setTimeout(function(){
       <p class="klein">Wat er met uw stukken gebeurt staat in
         <a href="privacy.html">Privacy en bewaartermijn</a>; waar wij ons aan houden in de
         <a href="voorwaarden.html">Voorwaarden</a>.</p>
+      <div class="cf-turnstile" data-sitekey="" data-response-field-name="turnstile"
+           data-theme="auto" data-appearance="interaction-only"></div>
       <button class="knop groot" type="submit">Dossier aanleveren</button>
       <p class="melding" id="melding" role="status" aria-live="polite" hidden></p>
     </form>
