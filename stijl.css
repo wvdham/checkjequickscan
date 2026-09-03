@@ -21,7 +21,10 @@
   /* Bewust geen donkere stand. De site heeft een eigen donkere hero en een
      donker paneel; die horen bij de vormgeving en niet bij de klok. Meedraaien
      met het systeem maakte de pagina 's avonds een andere site. */
-  color-scheme:light;
+  /* "only light" en niet zomaar "light": dat laatste zegt alleen welke stand wij
+     kiezen, het eerste verbiedt de browser om er zelf nog een donkere versie van te
+     maken. Chrome en sommige uitbreidingen doen dat namelijk uit zichzelf. */
+  color-scheme:only light;
 }
 
 *{box-sizing:border-box}
