@@ -188,3 +188,38 @@ html.js .op.in{opacity:1;transform:none}
   .op{opacity:1;transform:none;transition:none}
   .kaart:hover,.knop:hover,.adres:hover{transform:none}
 }
+
+/* ---------- aanleverformulier ---------- */
+.formulier{background:var(--vel);border-radius:26px;box-shadow:var(--schaduw);
+  padding:clamp(1.4rem,3.5vw,2.2rem);margin:2.2rem auto 0;max-width:44rem;text-align:left;
+  display:grid;gap:1rem}
+.veldrij{display:grid;gap:1rem}
+@media(min-width:40rem){.veldrij{grid-template-columns:1fr 1fr}}
+.formulier label{display:grid;gap:.4rem;font-weight:600;font-size:.92rem}
+.formulier .bij{font-weight:400;color:var(--flauw);font-size:.84rem}
+.formulier input[type=text],.formulier input[type=email],.formulier input:not([type]),
+.formulier textarea{
+  font:inherit;font-weight:400;color:var(--inkt);background:var(--papier);
+  border:1px solid var(--lijn);border-radius:12px;padding:.7rem .85rem;width:100%;
+  transition:border-color .2s,box-shadow .2s}
+.formulier input:focus-visible,.formulier textarea:focus-visible{outline:none;
+  border-color:var(--groen);box-shadow:0 0 0 3px rgba(18,192,138,.18)}
+.formulier textarea{resize:vertical;min-height:5rem}
+.bestandsveld input[type=file]{font:inherit;font-size:.9rem;padding:.6rem 0}
+.bestandsveld input[type=file]::file-selector-button{font:inherit;font-weight:600;
+  font-size:.88rem;border:0;border-radius:999px;padding:.5rem 1rem;margin-right:.8rem;
+  background:var(--inkt);color:var(--papier);cursor:pointer}
+.vinkje{grid-template-columns:auto 1fr;align-items:start;gap:.65rem;font-weight:400;
+  font-size:.92rem;color:var(--inkt-2)}
+.vinkje input{margin-top:.25rem;width:1.05rem;height:1.05rem;accent-color:var(--groen);flex:none}
+.formulier .klein,.slot .klein{font-size:.86rem;color:var(--inkt-2);margin:0}
+.slot .klein{margin-top:1.4rem}
+.formulier a,.slot .klein a{color:var(--groen);font-weight:600}
+.knop.groot{justify-content:center;padding:.85rem 1.6rem;font-size:1rem;
+  background:linear-gradient(96deg,var(--groen),#7ee0b6);color:#04201a;border:0;
+  cursor:pointer;font-family:inherit}
+.knop.groot:disabled{opacity:.55;cursor:progress;transform:none}
+.melding{margin:0;font-size:.92rem;padding:.7rem .9rem;border-radius:12px;
+  background:var(--papier);color:var(--inkt-2)}
+.melding.goed{background:rgba(18,192,138,.12);color:var(--inkt)}
+.melding.fout{background:rgba(255,90,54,.12);color:var(--inkt)}

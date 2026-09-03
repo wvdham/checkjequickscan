@@ -190,10 +190,48 @@ setTimeout(function(){
 <section class="slot" id="sturen">
   <div class="wrap">
     <h2 class="op">Stuur ons het dossier</h2>
-    <p class="lood op">Het rapport én de overige projectstukken. Hoe completer het dossier, hoe
-    meer wij kunnen controleren, want tegenspraak tussen documenten is niet te zien in één pdf.
-    Noem in uw bericht het adres van het plangebied, dan kunnen wij ook de soortencontrole doen.</p>
-    <a class="adres op" href="mailto:info@checkjequickscan.nl?subject=Dossier%20tegenlezen">info@checkjequickscan.nl</a>
+    <p class="lood op">Het rapport en de overige projectstukken. Hoe completer het dossier, hoe
+    meer wij kunnen controleren, want tegenspraak tussen documenten is niet te zien in een losse
+    pdf. Wij nemen contact op met een termijn voordat wij beginnen.</p>
+
+    <form class="formulier op" id="aanleverformulier" novalidate>
+      <div class="veldrij">
+        <label>Uw naam
+          <input name="naam" required autocomplete="name" maxlength="120">
+        </label>
+        <label>Bureau
+          <input name="bureau" required autocomplete="organization" maxlength="160">
+        </label>
+      </div>
+      <div class="veldrij">
+        <label>E-mailadres
+          <input name="mail" type="email" required autocomplete="email" maxlength="160">
+        </label>
+        <label>Adres van het plangebied
+          <input name="adres" maxlength="200" placeholder="straat, huisnummer, postcode, plaats">
+        </label>
+      </div>
+      <label>Toelichting <span class="bij">optioneel</span>
+        <textarea name="toelichting" rows="3" maxlength="1200"
+                  placeholder="Waar wilt u dat wij vooral op letten?"></textarea>
+      </label>
+      <label class="bestandsveld">Dossier <span class="bij">pdf, maximaal 12 bestanden en 60 MB samen</span>
+        <input name="dossier" type="file" accept="application/pdf" multiple required>
+      </label>
+      <label class="vinkje">
+        <input name="gerechtigd" type="checkbox" value="ja" required>
+        <span>Ik lever dit dossier aan als opsteller van het rapport of als diens opdrachtgever, en
+        ik ben gerechtigd deze stukken te verstrekken.</span>
+      </label>
+      <p class="klein">Wat er met uw stukken gebeurt staat in
+        <a href="privacy.html">Privacy en bewaartermijn</a>; waar wij ons aan houden in de
+        <a href="voorwaarden.html">Voorwaarden</a>.</p>
+      <button class="knop groot" type="submit">Dossier aanleveren</button>
+      <p class="melding" id="melding" role="status" aria-live="polite" hidden></p>
+    </form>
+
+    <p class="klein op">Liever per mail? Dat kan ook:
+      <a href="mailto:info@checkjequickscan.nl?subject=Dossier%20tegenlezen">info@checkjequickscan.nl</a></p>
   </div>
 </section>
 
@@ -223,6 +261,48 @@ setTimeout(function(){
   window.__animatie = true;
   // Tweede net: vuurt de waarnemer niet, dan staat alles er na twee seconden alsnog.
   setTimeout(() => blokken.forEach(el => el.classList.add('in')), 2000);
+
+  // Het ontvangstpunt. Vul hier het adres in dat wrangler na het uitrollen toont.
+  const ONTVANGST = "";
+
+  const formulier = document.getElementById('aanleverformulier');
+  const melding = document.getElementById('melding');
+  const knop = formulier.querySelector('button[type=submit]');
+
+  function zeg(tekst, soort) {
+    melding.textContent = tekst;
+    melding.className = 'melding ' + (soort || '');
+    melding.hidden = false;
+  }
+
+  formulier.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!ONTVANGST) {
+      zeg('Het aanleverpunt staat nog niet aan. Stuur uw dossier voorlopig per mail naar info@checkjequickscan.nl.', 'fout');
+      return;
+    }
+    if (!formulier.reportValidity()) return;
+
+    const bestanden = formulier.dossier.files;
+    let totaal = 0;
+    for (const b of bestanden) totaal += b.size;
+    if (bestanden.length > 12) { zeg('Maximaal twaalf bestanden.', 'fout'); return; }
+    if (totaal > 60 * 1024 * 1024) { zeg('Samen maximaal 60 MB.', 'fout'); return; }
+
+    knop.disabled = true;
+    zeg('Bezig met versturen, dit kan bij een groot dossier even duren.');
+    try {
+      const r = await fetch(ONTVANGST, { method: 'POST', body: new FormData(formulier) });
+      const uit = await r.json();
+      if (!r.ok) throw new Error(uit.fout || 'er ging iets mis');
+      formulier.reset();
+      zeg('Ontvangen, kenmerk ' + uit.kenmerk + '. U hoort van ons met een termijn voordat wij beginnen.', 'goed');
+    } catch (fout) {
+      zeg(fout.message + '. Lukt het niet, mail dan naar info@checkjequickscan.nl.', 'fout');
+    } finally {
+      knop.disabled = false;
+    }
+  });
 </script>
 </body>
 </html>
