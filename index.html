@@ -5,21 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>checkjequickscan — wat gaat het bevoegd gezag terugvragen?</title>
 <meta name="description" content="Wij lezen uw quickscan flora en fauna tegen vóór indiening en wijzen aan wat het bevoegd gezag gaat terugvragen. Voor ecologische adviesbureaus.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 54'><path d='M8 5h27l12 12v32H8z' fill='none' stroke='%23142023' stroke-width='3'/><path d='M35 5v12h12' fill='none' stroke='%23142023' stroke-width='3'/><path d='M17 32l7 7 14-15' fill='none' stroke='%23B23A22' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
-<meta name="theme-color" content="#142023">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 54'><path d='M8 5h27l12 12v32H8z' fill='none' stroke='%230c1c1b' stroke-width='3'/><path d='M35 5v12h12' fill='none' stroke='%230c1c1b' stroke-width='3'/><path d='M17 32l7 7 14-15' fill='none' stroke='%23ff5a36' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<meta name="theme-color" content="#0c1c1b">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://checkjequickscan.nl/">
 <meta property="og:title" content="checkjequickscan — wat gaat het bevoegd gezag terugvragen?">
 <meta property="og:description" content="Wij lezen uw quickscan flora en fauna tegen vóór indiening. Voor ecologische adviesbureaus.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Familjen+Grotesk:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="stijl.css">
+<script>
+// Verbergen mag alleen als er ook iets is dat weer laat zien. Zet het script hieronder
+// om welke reden dan ook geen animatie op, dan gaat deze klasse er weer af en staat de
+// pagina er gewoon. Een onzichtbare pagina is erger dan geen effect.
+document.documentElement.classList.add("js");
+setTimeout(function(){
+  if (!window.__animatie) document.documentElement.classList.remove("js");
+}, 2500);
+</script>
 </head>
 <body>
-<div class="vel">
 
-  <div class="kop">
+<header class="top" id="balk">
+  <div class="wrap">
     <a class="naam" href="/">
       <svg width="22" height="22" viewBox="0 0 54 54" aria-hidden="true">
         <path d="M8 5h27l12 12v32H8z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
@@ -29,125 +38,181 @@
       </svg>
       <span>check<i>jequickscan</i></span>
     </a>
-    <span class="ref">Tegenlezen vóór indiening · voor adviesbureaus</span>
+    <a class="knop" href="#sturen">Dossier aanleveren</a>
   </div>
+</header>
 
-  <h1>Wat gaat het bevoegd gezag <u>terugvragen</u>?</h1>
-  <p class="aanhef">Wij lezen uw quickscan flora en fauna tegen vóórdat hij de deur uit gaat. U
-  krijgt één rapport terug, met bij elke bevinding het letterlijke citaat en de vindplaats, zodat
-  u het zelf kunt nalopen.</p>
+<section class="hero">
+  <div class="wrap">
+    <div class="ernsten">
+      <span class="pil p-rood"><s></s>Blokkerend</span>
+      <span class="pil p-oker"><s></s>Vragenronde</span>
+      <span class="pil p-groen"><s></s>In orde</span>
+    </div>
+    <h1>Wat gaat het bevoegd gezag <em>terugvragen</em>?</h1>
+    <p class="aanhef">Wij lezen uw quickscan flora en fauna tegen vóórdat hij de deur uit gaat.
+    U krijgt één rapport terug, met bij elke bevinding het letterlijke citaat en de vindplaats,
+    zodat u het zelf kunt nalopen.</p>
+    <div class="hero-knoppen">
+      <a class="knop" href="#sturen">Stuur ons het dossier</a>
+      <a class="knop rand" href="#kijken">Waar wij naar kijken</a>
+    </div>
+  </div>
+</section>
 
-  <div class="rij">
-    <div class="kolom">
+<section class="sectie">
+  <div class="wrap duo">
+    <div class="op">
       <h2>Het faalpunt ligt in de verantwoording</h2>
-      <p>Zelden in het veldwerk. Het zit in een conclusie waarvan de dragende grond niet is
-      opgeschreven, in een tabel die het hoofdstuk ervóór tegenspreekt, in een artikelnummer dat na
-      een wetswijziging is verschoven. Stuk voor stuk klein, en samen een brief van het bevoegd
-      gezag die u een seizoen kan kosten.</p>
-      <p class="citaat"><span class="aangestreept">„Door de afwezigheid van nesten in bomen in de
-      directe omgeving zijn negatieve effecten uitgesloten.”</span></p>
-      <p>Twee bladzijden eerder noemt datzelfde rapport die bomen geschikte nestlocaties. Zulke
-      tegenspraak is hard te maken, kost geen vakinhoudelijke discussie, en is precies wat een
-      vragenronde oplevert.</p>
+      <p class="lood">Zelden in het veldwerk. Het zit in een conclusie waarvan de dragende grond
+      niet is opgeschreven, in een tabel die het hoofdstuk ervóór tegenspreekt, in een
+      artikelnummer dat na een wetswijziging is verschoven. Stuk voor stuk klein, en samen een
+      brief van het bevoegd gezag die u een seizoen kan kosten.</p>
     </div>
-    <div class="marge m-rood"><b>Blokkerend</b>De conclusie houdt niet. Hierop wordt geweigerd of
-    teruggevraagd, en dit staat vooraan in uw rapport.</div>
-  </div>
-
-  <div class="rij">
-    <div class="kolom">
-      <h2>Waar wij naar kijken</h2>
-      <p>Vijf soorten gebrek. Wij toetsen uitsluitend juridisch en procedureel; soortenwegingen
-      beoordelen wij niet, want dat blijft uw vak.</p>
-      <ul class="gebreken">
-        <li><s style="background:var(--rood)"></s><div><strong>Wat ontbreekt</strong>
-          <span>Een verantwoording of uitspraak die het rapport aan zijn eigen conclusie verschuldigd is.</span></div></li>
-        <li><s style="background:var(--rood)"></s><div><strong>Wat te dun is</strong>
-          <span>Conclusies die de gegeven grond niet dragen, of die rusten op een waarneming die op dat moment niets kon aantonen.</span></div></li>
-        <li><s style="background:var(--oker)"></s><div><strong>Wat elkaar tegenspreekt</strong>
-          <span>Een tabel tegenover een hoofdstuk, een samenvatting tegenover een conclusie, dezelfde grootheid met twee waarden.</span></div></li>
-        <li><s style="background:var(--oker)"></s><div><strong>Verkeerde bronnen</strong>
-          <span>Ingetrokken recht dat als geldend wordt gepresenteerd, een verschoven artikelnummer, een protocol zonder versie.</span></div></li>
-        <li><s style="background:var(--groen)"></s><div><strong>De verkeerde route</strong>
-          <span>Een vergunning die een ander spoor niet afdekt, of een instructieregel die als weigeringsgrond niet is benoemd.</span></div></li>
-      </ul>
+    <div class="bewijs op">
+      <span class="label">Blokkerend · uit een echt rapport</span>
+      <blockquote>„Door de afwezigheid van nesten in bomen in de directe omgeving zijn negatieve
+      effecten uitgesloten.”</blockquote>
+      <p class="na">Twee bladzijden eerder noemt datzelfde rapport die bomen geschikte
+      nestlocaties. Zulke tegenspraak is hard te maken, kost geen vakinhoudelijke discussie, en
+      is precies wat een vragenronde oplevert.</p>
     </div>
-    <div class="marge m-oker"><b>Vragenronde</b>Hier vraagt het bevoegd gezag naar. Geen weigering,
-    wel weken.</div>
   </div>
+</section>
 
-  <div class="rij">
-    <div class="kolom">
-      <h2>Wat u terugkrijgt</h2>
-      <p>Eén document. De bevindingen staan op wat ze kosten en niet op paginanummer, zodat u weet
-      wat eerst moet. Bij elke bevinding staat het letterlijke citaat met de vindplaats: vindt u een
-      citaat niet terug in uw eigen rapport, dan hoort de bevinding er niet te staan.</p>
-      <p>Er staat ook in wat is gecontroleerd en in orde bevonden. Bij een rapport dat deugt is dat
-      de langste lijst, en die hoort u te zien. En er staat in wat wij <em>niet</em> hebben
-      gecontroleerd omdat een document ontbrak, want een overgeslagen controle leest anders als een
-      geslaagde.</p>
+<section class="sectie" id="kijken">
+  <div class="wrap">
+    <h2 class="op">Waar wij naar kijken</h2>
+    <p class="lood op">Vijf soorten gebrek. Wij toetsen uitsluitend juridisch en procedureel;
+    soortenwegingen beoordelen wij niet, want dat blijft uw vak.</p>
+    <div class="kaarten">
+      <article class="kaart op" style="--kleur:var(--rood)"><span class="nr">01</span>
+        <h3>Wat ontbreekt</h3>
+        <p>Een verantwoording of uitspraak die het rapport aan zijn eigen conclusie verschuldigd is.</p></article>
+      <article class="kaart op" style="--kleur:var(--rood)"><span class="nr">02</span>
+        <h3>Wat te dun is</h3>
+        <p>Conclusies die de gegeven grond niet dragen, of die rusten op een waarneming die op dat
+        moment niets kon aantonen.</p></article>
+      <article class="kaart op" style="--kleur:var(--oker)"><span class="nr">03</span>
+        <h3>Wat elkaar tegenspreekt</h3>
+        <p>Een tabel tegenover een hoofdstuk, een samenvatting tegenover een conclusie, dezelfde
+        grootheid met twee waarden.</p></article>
+      <article class="kaart op" style="--kleur:var(--oker)"><span class="nr">04</span>
+        <h3>Verkeerde bronnen</h3>
+        <p>Ingetrokken recht dat als geldend wordt gepresenteerd, een verschoven artikelnummer,
+        een protocol zonder versie.</p></article>
+      <article class="kaart op" style="--kleur:var(--groen)"><span class="nr">05</span>
+        <h3>De verkeerde route</h3>
+        <p>Een vergunning die een ander spoor niet afdekt, of een instructieregel die als
+        weigeringsgrond niet is benoemd.</p></article>
+      <article class="kaart op" style="--kleur:var(--groen)"><span class="nr">→</span>
+        <h3>Wat u terugkrijgt</h3>
+        <p>Eén document. De bevindingen staan op wat ze kosten en niet op paginanummer, zodat u
+        weet wat eerst moet. Bij elke bevinding het citaat en de vindplaats.</p></article>
     </div>
-    <div class="marge m-groen"><b>In orde</b>Gecontroleerd en niets op aan te merken. Bij een goed
-    rapport is dit de lijst die telt.</div>
   </div>
+</section>
 
-  <div class="rij">
-    <div class="kolom">
-      <h2>Wat er met uw dossier gebeurt</h2>
-      <div class="stempel">
-        <ol>
-          <li>Alleen degene die aanlevert en het model dat verwerkt zien uw stukken.
-            <b>Geen mens bij ons leest ze</b>, ook niet bij een vraag achteraf.</li>
-          <li>Uw stukken worden <b>na aflevering van het rapport verwijderd</b>, ook uit de postbus,
-            en niet bewaard.</li>
-          <li>De bevindingen blijven bij u. Wij houden ze niet.</li>
-          <li><b>Wij trainen geen model op rapporten van bureaus.</b> Niet op wat u aanlevert, en
-            niet op wat ergens openbaar staat.</li>
-        </ol>
+<section class="sectie">
+  <div class="wrap duo">
+    <div class="op">
+      <h2>Ook wat er wél deugt staat erin</h2>
+      <p class="lood">Er staat in wat is gecontroleerd en in orde bevonden. Bij een rapport dat
+      deugt is dat de langste lijst, en die hoort u te zien. En er staat in wat wij <em>niet</em>
+      hebben gecontroleerd omdat een document ontbrak, want een overgeslagen controle leest anders
+      als een geslaagde.</p>
+    </div>
+    <div class="op">
+      <div class="grens" style="margin-bottom:1rem">
+        <h3>Vindt u een citaat niet terug?</h3>
+        <p>Dan hoort de bevinding er niet te staan. Elke bevinding draagt het letterlijke citaat
+        met de vindplaats, juist zodat u ons kunt controleren.</p>
+      </div>
+      <div class="grens">
+        <h3>Gesorteerd op wat het kost</h3>
+        <p>Niet op paginanummer. Blokkerend eerst, dan wat een vragenronde oplevert, dan de
+        vormfouten.</p>
       </div>
     </div>
-    <div class="marge"><b>Waarom dit er staat</b>U levert werk aan dat nog niet is ingediend. Dan
-    moet vastliggen waar het blijft, en hoelang.</div>
   </div>
+</section>
 
-  <div class="rij">
-    <div class="kolom">
+<section class="sectie">
+  <div class="wrap">
+    <div class="paneel op">
+      <h2>Wat er met uw dossier gebeurt</h2>
+      <p class="lood" style="color:#b9cfc8">U levert werk aan dat nog niet is ingediend. Dan moet
+      vastliggen waar het blijft, en hoelang.</p>
+      <ol>
+        <li>Alleen degene die aanlevert en het model dat verwerkt zien uw stukken.
+          <b>Geen mens bij ons leest ze</b>, ook niet bij een vraag achteraf.</li>
+        <li>Uw stukken worden <b>na aflevering van het rapport verwijderd</b>, ook uit de postbus,
+          en niet bewaard.</li>
+        <li>De bevindingen blijven bij u. Wij houden ze niet.</li>
+        <li><b>Wij trainen geen model op rapporten van bureaus.</b> Niet op wat u aanlevert, en
+          niet op wat ergens openbaar staat.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sectie">
+  <div class="wrap duo">
+    <div class="op">
       <h2>Wat wij niet doen</h2>
-      <p>Geen vakinhoudelijke weging: of een element hier een vliegroute vormt of een terrein
-      geschikt is voor een soort, blijft uw oordeel. Geen veldwerk en geen gebiedskennis, want wij
-      lezen documenten en zijn er nooit geweest. Geen deskundigenoordeel, maar een
-      signaleringsrapport om zelf na te lopen. En geen herschrijving: het rapport blijft van u, en
-      uw naam staat eronder.</p>
+      <p class="lood">Geen vakinhoudelijke weging: of een element hier een vliegroute vormt of een
+      terrein geschikt is voor een soort, blijft uw oordeel. Geen veldwerk en geen gebiedskennis,
+      want wij lezen documenten en zijn er nooit geweest. Geen deskundigenoordeel, maar een
+      signaleringsrapport om zelf na te lopen. En geen herschrijving: het rapport blijft van u,
+      en uw naam staat eronder.</p>
     </div>
-    <div class="marge"><b>Grens</b>Deze staat er omdat u erop moet kunnen bouwen.</div>
-  </div>
-
-  <div class="rij">
-    <div class="kolom">
+    <div class="op">
       <h2>Voor wie dit is</h2>
-      <p>Voor het bureau dat het rapport heeft opgesteld, of voor de opdrachtgever die het heeft
-      laten maken. Wij nemen bewust geen aanvragen aan van omwonenden of belanghebbenden die het
-      rapport van een ander willen laten toetsen, en niet van bevoegd gezag dat een binnengekomen
-      rapport wil beoordelen.</p>
-      <p>Wie zijn eigen werk laat nakijken, moet erop kunnen vertrouwen dat de tegenpartij hier niet
-      terechtkan.</p>
+      <p class="lood">Voor het bureau dat het rapport heeft opgesteld, of voor de opdrachtgever
+      die het heeft laten maken. Wij nemen bewust geen aanvragen aan van omwonenden of
+      belanghebbenden die het rapport van een ander willen laten toetsen, en niet van bevoegd
+      gezag dat een binnengekomen rapport wil beoordelen.</p>
+      <p class="lood">Wie zijn eigen werk laat nakijken, moet erop kunnen vertrouwen dat de
+      tegenpartij hier niet terechtkan.</p>
     </div>
-    <div class="marge"><b>Niet voor</b>Omwonenden, belanghebbenden en bevoegd gezag.</div>
   </div>
+</section>
 
-  <div class="slot">
-    <h2>Stuur ons het dossier</h2>
-    <p>Het rapport én de overige projectstukken. Hoe completer het dossier, hoe meer wij kunnen
-    controleren, want tegenspraak tussen documenten is niet te zien in één pdf.</p>
-    <a class="adres" href="mailto:info@checkjequickscan.nl?subject=Dossier%20tegenlezen">info@checkjequickscan.nl</a>
+<section class="slot" id="sturen">
+  <div class="wrap">
+    <h2 class="op">Stuur ons het dossier</h2>
+    <p class="lood op">Het rapport én de overige projectstukken. Hoe completer het dossier, hoe
+    meer wij kunnen controleren, want tegenspraak tussen documenten is niet te zien in één pdf.</p>
+    <a class="adres op" href="mailto:info@checkjequickscan.nl?subject=Dossier%20tegenlezen">info@checkjequickscan.nl</a>
   </div>
+</section>
 
-  <footer>
+<footer>
+  <div class="wrap">
     <span>checkjequickscan</span>
     <a href="privacy.html">Privacy en bewaartermijn</a>
     <a href="voorwaarden.html">Voorwaarden</a>
-  </footer>
+  </div>
+</footer>
 
-</div>
+<script>
+  // Let op: geen variabele "top" hier. Dat is een bestaande eigenschap van window,
+  // en een const met die naam laat het hele script bij het inlezen al omvallen.
+  const balk = document.getElementById('balk');
+  addEventListener('scroll', () => balk.classList.toggle('vast', scrollY > 8), {passive:true});
+
+  const blokken = document.querySelectorAll('.op');
+  const kijker = new IntersectionObserver((rijen) => {
+    rijen.forEach(r => { if (r.isIntersecting) { r.target.classList.add('in'); kijker.unobserve(r.target); } });
+  }, {rootMargin: '0px 0px -8% 0px'});
+  blokken.forEach((el, i) => {
+    el.style.transitionDelay = (i % 3) * 70 + 'ms';
+    kijker.observe(el);
+  });
+
+  window.__animatie = true;
+  // Tweede net: vuurt de waarnemer niet, dan staat alles er na twee seconden alsnog.
+  setTimeout(() => blokken.forEach(el => el.classList.add('in')), 2000);
+</script>
 </body>
 </html>
