@@ -263,8 +263,10 @@ setTimeout(function(){
   // Tweede net: vuurt de waarnemer niet, dan staat alles er na twee seconden alsnog.
   setTimeout(() => blokken.forEach(el => el.classList.add('in')), 2000);
 
-  // Het ontvangstpunt. Vul hier het adres in dat wrangler na het uitrollen toont.
-  const ONTVANGST = "";
+  // Het ontvangstpunt: een eigen Cloudflare Worker die het dossier in R2 zet en verder
+  // niets doet. Verhuist dit ooit naar een eigen domein, dan is dit de enige regel die
+  // verandert.
+  const ONTVANGST = "https://checkjequickscan-ontvangst.checkjequickscan-ontvangst.workers.dev/aanleveren";
 
   const formulier = document.getElementById('aanleverformulier');
   const melding = document.getElementById('melding');
