@@ -68,8 +68,8 @@ addEventListener("DOMContentLoaded", function () {
     <p class="aanhef">Wij lezen uw quickscan flora en fauna tegen vóórdat hij de deur uit gaat.
     U krijgt één rapport terug, met bij elke bevinding het letterlijke citaat en de vindplaats,
     zodat u het zelf kunt nalopen.</p>
-    <p class="aanhef klein-op-donker">Voorlopig alleen de quickscan. De controles op nader
-    onderzoek beschermde soorten zijn in aanbouw.</p>
+    <p class="aanhef klein-op-donker">Voorlopig alleen de quickscan flora en fauna. De
+    controles op nader onderzoek beschermde soorten zijn in ontwikkeling en volgen.</p>
     <div class="hero-knoppen">
       <a class="knop" href="#sturen">Stuur ons het dossier</a>
       <a class="knop rand" href="#kijken">Waar wij naar kijken</a>
@@ -239,9 +239,8 @@ addEventListener("DOMContentLoaded", function () {
     btw per dossier. Wij melden het vooraf en beginnen pas als u akkoord geeft, zodat u er nog
     van af kunt zien.</p>
     <p class="lood op">Wij beoordelen op dit moment de quickscan flora en fauna. Levert u een
-    nader onderzoek beschermde soorten aan, dan lopen wij daar alleen de vaste controles op na
-    en zeggen wij dat er in het rapport bij; die beoordeling is nog in aanbouw en brengen wij
-    niet in rekening.</p>
+    nader onderzoek beschermde soorten aan, dan laten wij dat weten en verwijderen wij de
+    stukken; een halve beoordeling sturen wij niet. Die controles zijn in ontwikkeling.</p>
 
     <form class="formulier op" id="aanleverformulier" novalidate>
       <div class="veldrij">
@@ -253,7 +252,7 @@ addEventListener("DOMContentLoaded", function () {
         </label>
       </div>
       <div class="veldrij">
-        <label>E-mailadres
+        <label>E-mailadres <span class="bij">van uw bureau</span>
           <input name="mail" type="email" required autocomplete="email" maxlength="160">
         </label>
         <label>Waar ligt het plangebied? <span class="bij">optioneel</span>
@@ -265,7 +264,9 @@ addEventListener("DOMContentLoaded", function () {
         <textarea name="toelichting" rows="3" maxlength="1200"
                   placeholder="Waar wilt u dat wij vooral op letten?"></textarea>
       </label>
-      <label class="bestandsveld">Dossier <span class="bij">pdf, maximaal 12 bestanden en 60 MB samen</span>
+      <label class="bestandsveld">Dossier <span class="bij">pdf, maximaal 12 bestanden en 60 MB
+        samen. Hoe meer u meestuurt, hoe meer wij kunnen controleren: tegenspraak tussen twee
+        documenten is in een losse pdf niet te zien.</span>
         <input name="dossier" type="file" accept="application/pdf" multiple required>
       </label>
       <label class="vinkje">
