@@ -234,7 +234,7 @@ addEventListener("DOMContentLoaded", function () {
     <h2 class="op">Stuur ons het dossier</h2>
     <p class="lood op">Het rapport en de overige projectstukken. Hoe completer het dossier, hoe
     meer wij kunnen controleren, want tegenspraak tussen documenten is niet te zien in een losse
-    pdf. Wij nemen contact op met een termijn voordat wij beginnen.</p>
+    pdf.</p>
     <p class="lood op"><b>De eerste beoordeling is kosteloos.</b> Daarna &euro;125 exclusief
     btw per dossier. Wij melden het vooraf en beginnen pas als u akkoord geeft, zodat u er nog
     van af kunt zien.</p>
@@ -357,7 +357,7 @@ addEventListener("DOMContentLoaded", function () {
       const uit = await r.json();
       if (!r.ok) throw new Error(uit.fout || 'er ging iets mis');
       formulier.reset();
-      zeg('Ontvangen, kenmerk ' + uit.kenmerk + '. U hoort van ons met een termijn voordat wij beginnen.', 'goed');
+      zeg('Ontvangen, kenmerk ' + uit.kenmerk + '. U hoort per e-mail van ons.', 'goed');
     } catch (fout) {
       zeg(fout.message + '. Lukt het niet, mail dan naar info@checkjequickscan.nl.', 'fout');
     } finally {
