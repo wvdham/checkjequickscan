@@ -101,6 +101,8 @@ a{color:inherit}
 .bewijs .na{color:var(--inkt-2);font-size:.95rem;margin:0}
 
 /* de vijf gebreken */
+/* kop boven een tweede reeks kaarten in dezelfde sectie */
+.tussenkop{margin:3.2rem 0 .6rem;font-size:1.45rem;line-height:1.25;letter-spacing:-.01em}
 .kaarten{display:grid;gap:1rem;margin-top:2.2rem}
 @media(min-width:46rem){.kaarten{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:68rem){.kaarten{grid-template-columns:repeat(3,1fr)}}
@@ -190,11 +192,18 @@ html.js .op.in{opacity:1;transform:none}
 .formulier label{display:grid;gap:.4rem;font-weight:600;font-size:.92rem}
 .formulier .bij{font-weight:400;color:var(--flauw);font-size:.84rem}
 .formulier input[type=text],.formulier input[type=email],.formulier input:not([type]),
-.formulier textarea{
+.formulier select,.formulier textarea{
   font:inherit;font-weight:400;color:var(--inkt);background:var(--papier);
   border:1px solid var(--lijn);border-radius:12px;padding:.7rem .85rem;width:100%;
   transition:border-color .2s,box-shadow .2s}
-.formulier input:focus-visible,.formulier textarea:focus-visible{outline:none;
+.formulier select{appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--flauw) 50%),
+    linear-gradient(135deg,var(--flauw) 50%,transparent 50%);
+  background-position:calc(100% - 1.15rem) 55%,calc(100% - .85rem) 55%;
+  background-size:.36rem .36rem,.36rem .36rem;background-repeat:no-repeat;
+  padding-right:2.4rem}
+.formulier input:focus-visible,.formulier select:focus-visible,
+.formulier textarea:focus-visible{outline:none;
   border-color:var(--groen);box-shadow:0 0 0 3px rgba(18,192,138,.18)}
 .formulier textarea{resize:vertical;min-height:5rem}
 .bestandsveld input[type=file]{font:inherit;font-size:.9rem;padding:.6rem 0}
@@ -228,6 +237,11 @@ html.js .op.in{opacity:1;transform:none}
 .bweg{flex:none;border:0;background:transparent;cursor:pointer;font:inherit;
   font-size:1.15rem;line-height:1;color:var(--flauw);padding:.1rem .35rem;border-radius:8px}
 .bweg:hover{color:var(--rood);background:rgba(255,90,54,.1)}
+/* de aanwijzing: welk stuk is het onderwerp, en wat is achtergrond */
+.bkeuze{flex:none;margin:0;accent-color:var(--groen);width:1.05rem;height:1.05rem;
+  cursor:pointer}
+.bestandslijst .bkop{display:block;background:none;border:0;padding:.35rem .1rem .1rem;
+  color:var(--inkt-2);font-weight:600;font-size:.86rem}
 .bestandslijst .btotaal{display:block;background:none;border:0;padding:.1rem .85rem 0;
   color:var(--inkt-2);font-weight:600;font-size:.86rem}
 
