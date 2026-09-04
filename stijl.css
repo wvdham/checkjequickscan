@@ -99,6 +99,10 @@ a{color:inherit}
 .bewijs blockquote{margin:.9rem 0;font-size:1.06rem;line-height:1.5;
   border-left:3px solid var(--rood);padding-left:.95rem}
 .bewijs .na{color:var(--inkt-2);font-size:.95rem;margin:0}
+/* de brug tussen twee citaten in één kaart: een tegenspraak heeft er twee nodig,
+   en zonder deze regel lijken het twee losse fragmenten in plaats van een paar */
+.bewijs .tussen{color:var(--inkt-2);font-size:.86rem;margin:-.3rem 0 -.4rem;
+  font-style:italic}
 
 /* de vijf gebreken */
 /* kop boven een tweede reeks kaarten in dezelfde sectie.
@@ -256,6 +260,14 @@ html.js .op.in{opacity:1;transform:none}
 .voorbeelden .bewijs .label{color:var(--kleur)}
 .voorbeelden .bewijs blockquote{border-left-color:var(--kleur);font-size:1rem}
 @media(min-width:46rem){.voorbeelden{grid-template-columns:repeat(2,1fr)}}
+/* Het zwaarste voorbeeld over de volle breedte. Vier kaarten in drie kolommen laten
+   er een als wees achter, en dit is bovendien het enige voorbeeld met twee citaten:
+   een tegenspraak heeft ruimte nodig om naast elkaar gelezen te worden. */
+@media(min-width:46rem){
+  .voorbeelden .bewijs:first-child{grid-column:1 / -1}
+  .voorbeelden .bewijs:first-child blockquote{font-size:1.06rem}
+}
+@media(min-width:68rem){.voorbeelden{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:68rem){.voorbeelden{grid-template-columns:repeat(3,1fr)}}
 
 /* ---------- veelgestelde vragen ---------- */
