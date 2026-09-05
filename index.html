@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Familjen+Grotesk:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="stijl.css?v=addf0340">
+<link rel="stylesheet" href="stijl.css?v=09f9cfac">
 <script>
 // Verbergen mag alleen als er ook iets is dat weer laat zien. Zet het script hieronder
 // om welke reden dan ook geen animatie op, dan gaat deze klasse er weer af en staat de
@@ -562,9 +562,15 @@ addEventListener("DOMContentLoaded", function () {
         <label>E-mailadres <span class="bij">van uw bureau</span>
           <input name="mail" type="email" required autocomplete="email" maxlength="160">
         </label>
-        <label>Waar ligt het plangebied? <span class="bij">optioneel</span>
+        <label>Waar ligt het plangebied? <span class="bij">optioneel, maar het scheelt een controle</span>
           <input name="adres" maxlength="200"
-                 placeholder="adres, kadastraal perceel of coordinaten">
+                 placeholder="51.9702, 6.2934 &middot; of Bielheimerweg 5 Doetinchem">
+          <span class="hint">Een co&ouml;rdinaat is het duidelijkst: rijksdriehoek of graden, in
+          welke volgorde dan ook. Een adres met huisnummer of een kadastraal perceel kan ook.
+          Hiermee leggen wij de soorten uit de openbare natuurgegevens naast uw rapport. Laat u
+          het leeg, dan zoeken wij het adres zelf in uw rapport, en lukt dat niet, dan slaan wij
+          die controle over. Bij een dossier met meerdere locaties lukt het ons vrijwel nooit,
+          dus vul het dan zeker in.</span>
         </label>
       </div>
       <label>Wat moeten wij tegenlezen?

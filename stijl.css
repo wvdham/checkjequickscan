@@ -362,3 +362,8 @@ html.js .op.in{opacity:1;transform:none}
 .v2{background:var(--vlak-2)}
 .v3{background:var(--vlak-3)}
 .hero.licht.v1{background:var(--vlak-1)}
+
+/* Toelichting onder een invoerveld. Hoort bij het label, dus binnen dezelfde
+   klikruimte, en in de kleur van bijtekst zodat het het veld niet overschreeuwt. */
+.formulier .hint{display:block;margin-top:.4rem;font-size:.85rem;line-height:1.5;
+  color:var(--flauw);font-weight:400}
