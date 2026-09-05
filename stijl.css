@@ -94,7 +94,7 @@ a{color:inherit}
 /* ---------- secties ---------- */
 .sectie{padding:clamp(3rem,7vw,5rem) 0}
 .sectie h2{font-size:clamp(1.6rem,3.3vw,2.35rem);max-width:26ch}
-.lood{color:var(--inkt-2);max-width:64ch;margin:.85rem 0 0;font-size:1.03rem}
+.lood{color:var(--inkt-2);max-width:72ch;margin:.85rem 0 0;font-size:1.03rem}
 
 .duo{display:grid;gap:1.4rem;align-items:start}
 @media(min-width:56rem){.duo{grid-template-columns:1fr 1fr;gap:3.4rem}}
@@ -302,17 +302,6 @@ html.js .op.in{opacity:1;transform:none}
   color:var(--inkt-2)}
 .balknav>a:not(.knop):hover{color:var(--inkt)}
 @media(max-width:26rem){.balknav>a:not(.knop){display:none}}
-
-/* Sectiekop boven een kaartenrij: kop links, aanloop rechts.
-   Zonder dit staat de tekst in een kolom van ruim 40% met een lege rechterhelft,
-   terwijl de kaarten eronder de volle breedte pakken. Dat las als een telefoonlayout
-   die in een breed venster is geplakt. */
-.kop-duo{display:grid;gap:.6rem 3.4rem;align-items:end;margin-bottom:.4rem}
-@media(min-width:56rem){
-  .kop-duo{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
-  .kop-duo h2{margin:0;max-width:none}
-  .kop-duo .lood{margin:0;max-width:none}
-}
 
 /* De hero: licht en stil, met het voorbeeld eronder als strook in het blad.
    De donkere variant met een kaart ernaast is vervangen; die las als een productpagina
