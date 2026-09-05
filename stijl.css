@@ -67,7 +67,7 @@ a{color:inherit}
 .hero h1 em{font-style:normal;
   background:linear-gradient(96deg,var(--oker),var(--rood));
   -webkit-background-clip:text;background-clip:text;color:transparent}
-.aanhef{font-size:clamp(1.05rem,1.9vw,1.28rem);line-height:1.55;max-width:46ch;
+.aanhef{font-size:clamp(1.05rem,1.9vw,1.28rem);line-height:1.55;max-width:54ch;
   color:#b9cfc8;margin:1.4rem 0 0}
 .hero-knoppen{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
 .hero .knop{background:#eaf4f0;color:var(--diep)}
@@ -85,8 +85,8 @@ a{color:inherit}
 
 /* ---------- secties ---------- */
 .sectie{padding:clamp(3rem,7vw,5rem) 0}
-.sectie h2{font-size:clamp(1.6rem,3.3vw,2.35rem);max-width:20ch}
-.lood{color:var(--inkt-2);max-width:52ch;margin:.85rem 0 0;font-size:1.03rem}
+.sectie h2{font-size:clamp(1.6rem,3.3vw,2.35rem);max-width:26ch}
+.lood{color:var(--inkt-2);max-width:64ch;margin:.85rem 0 0;font-size:1.03rem}
 
 .duo{display:grid;gap:1.4rem;align-items:start}
 @media(min-width:56rem){.duo{grid-template-columns:1fr 1fr;gap:3.4rem}}
@@ -293,3 +293,35 @@ html.js .op.in{opacity:1;transform:none}
   color:var(--inkt-2)}
 .balknav>a:not(.knop):hover{color:var(--inkt)}
 @media(max-width:26rem){.balknav>a:not(.knop){display:none}}
+
+/* Sectiekop boven een kaartenrij: kop links, aanloop rechts.
+   Zonder dit staat de tekst in een kolom van ruim 40% met een lege rechterhelft,
+   terwijl de kaarten eronder de volle breedte pakken. Dat las als een telefoonlayout
+   die in een breed venster is geplakt. */
+.kop-duo{display:grid;gap:.6rem 3.4rem;align-items:end;margin-bottom:.4rem}
+@media(min-width:56rem){
+  .kop-duo{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+  .kop-duo h2{margin:0;max-width:none}
+  .kop-duo .lood{margin:0;max-width:none}
+}
+
+/* De hero: kop en bewijs naast elkaar.
+   Eén kolom liet de rechterhelft leeg op een breed scherm, en alles wat de bezoeker
+   over het product kon weten moest gelezen worden. Rechts staat nu waar hij voor komt:
+   een bevinding zoals hij eruitziet. */
+.hero-duo{display:grid;gap:2.4rem;align-items:center}
+@media(min-width:60rem){
+  .hero-duo{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:4rem}
+  .hero h1{max-width:none}
+  .hero .aanhef{max-width:38ch}
+}
+.hero .fijn{margin:1.4rem 0 0;font-size:.88rem;color:#8fb0a6;letter-spacing:.01em}
+
+/* Het bewijsblok in de hero. Lichte kaart op een donkere achtergrond, zodat het als
+   een uitsnede uit het rapport leest en niet als nog een tekstblok. */
+.hero-bewijs{margin:0;background:rgba(255,255,255,.055);border-radius:var(--rond);
+  padding:clamp(1.2rem,2.6vw,1.7rem);box-shadow:inset 0 0 0 1px rgba(255,255,255,.11)}
+.hero-bewijs .ernsten{margin-bottom:1.1rem}
+.hero-bewijs blockquote{margin:0;font-size:clamp(1rem,1.5vw,1.14rem);line-height:1.5;
+  color:#eaf4f0;border-left:3px solid var(--rood);padding-left:1rem}
+.hero-bewijs .na{margin:1rem 0 0;font-size:.95rem;line-height:1.55;color:#b9cfc8}
