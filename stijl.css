@@ -218,7 +218,11 @@ html.js .op.in{opacity:1;transform:none}
   display:grid;gap:1rem}
 .veldrij{display:grid;gap:1rem}
 @media(min-width:40rem){.veldrij{grid-template-columns:1fr 1fr}}
-.formulier label{display:grid;gap:.4rem;font-weight:600;font-size:.92rem}
+/* align-content:start, anders verdeelt het label zijn rijen over de hoogte zodra de
+   buurcel in dezelfde rij hoger is. Het invoerveld zakt dan naar de onderkant en de
+   bijtekst blijft er los boven hangen. */
+.formulier label{display:grid;gap:.4rem;align-content:start;
+  font-weight:600;font-size:.92rem}
 .formulier .bij{font-weight:400;color:var(--flauw);font-size:.84rem}
 .formulier input[type=text],.formulier input[type=email],.formulier input:not([type]),
 .formulier select,.formulier textarea{
