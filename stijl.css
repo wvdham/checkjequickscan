@@ -6,6 +6,13 @@
   --diep-2:#173945;
   --vel:#ffffff;
   --papier:#eef1f1;
+  /* Drie vlakken, dicht bij elkaar. Ze markeren waar een onderwerp begint en eindigt;
+     de pagina was één egaal blad van boven tot onder en daardoor liep alles in elkaar
+     over. Om en om zou een streepjespatroon geven, dus ze volgen de hoofdstukken:
+     het probleem, wat wij controleren, hoe wij werken, wat het kost. */
+  --vlak-1:#f4f6f5;
+  --vlak-2:#eaeeed;
+  --vlak-3:#e0e7e5;
   --inkt:#12262c;
   --inkt-2:#4e6168;
   --flauw:#8a9aa0;
@@ -45,9 +52,11 @@ a{color:inherit}
 .wrap{width:min(72rem,100% - 2.4rem);margin-inline:auto}
 
 /* ---------- balk ---------- */
+/* De balk kreeg de kleur van het blad eronder en was daardoor onzichtbaar. Nu een
+   eigen, iets diepere toon met een haarlijn eronder, zodat hij als een balk leest. */
 .top{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);
-  background:color-mix(in srgb,var(--papier) 82%,transparent);
-  border-bottom:1px solid transparent;transition:border-color .3s}
+  background:color-mix(in srgb,#d5dedb 88%,transparent);
+  border-bottom:1px solid var(--lijn);transition:border-color .3s}
 .top.vast{border-bottom-color:var(--lijn)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;
   gap:1rem;height:64px}
@@ -343,3 +352,10 @@ html.js .op.in{opacity:1;transform:none}
    een groot gat eronder. */
 .grensduo{display:grid;gap:1rem;margin-top:1.4rem}
 @media(min-width:56rem){.grensduo{grid-template-columns:1fr 1fr;gap:1.6rem}}
+
+/* De vlakken zelf. De hero heeft zijn eigen achtergrondregel, dus die overschrijven we
+   met dezelfde specificiteit erachteraan. */
+.v1{background:var(--vlak-1)}
+.v2{background:var(--vlak-2)}
+.v3{background:var(--vlak-3)}
+.hero.licht.v1{background:var(--vlak-1)}
